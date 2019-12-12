@@ -13,21 +13,23 @@ const MenuBar = (props) => {
 
   */
 
+
+
   return (
     <div className="ui four item menu">
-      <a className="item active" id="profile">
-        <i className="user large icon" id="profile"/>
+      <a className={(props.mainboxState.selectedItem === "profile" ? "item active" : "item")} id="profile" onClick={event => props.toggleItem(event)}>
+        <i className="user large icon" id="profile" />
       </a>
 
-      <a className="item" id="photo">
+      <a className={(props.mainboxState.selectedItem === "photo" ? "item active" : "item")} id="photo" onClick={event => props.toggleItem(event)}>
         <i className="photo large icon" id="photo"/>
       </a>
 
-      <a className="item" id="cocktail">
-        <i className="cocktail large icon" id="cocktail"/>
+      <a className={(props.mainboxState.selectedItem === "cocktail" ? "item active" : "item")} id="cocktail" onClick={event => props.toggleItem(event)}>
+        <i className="cocktail large icon" id="cocktail" />
       </a>
 
-      <a className="item" id="pokemon"> 
+      <a className={(props.mainboxState.selectedItem === "pokemon" ? "item active" : "item")} id="pokemon" onClick={event => props.toggleItem(event)}> 
         <i className=" themeisle large icon" id="pokemon"/>
       </a>
     </div>
