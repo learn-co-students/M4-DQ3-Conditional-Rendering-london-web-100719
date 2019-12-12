@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MenuBar = (props) => {
+const MenuBar = (whatever) => {
 
   /*
 
@@ -13,21 +13,23 @@ const MenuBar = (props) => {
 
   */
 
+
+
   return (
     <div className="ui four item menu">
-      <a className="item active" id="profile">
-        <i className="user large icon" id="profile"/>
+      <a className={(whatever.mainboxState.selectedItem === "profile" ? "item active" : "item")} id="profile" onClick={event => whatever.toggleItem(event)}>
+        <i className="user large icon" id="profile" />
       </a>
 
-      <a className="item" id="photo">
+      <a className={(whatever.mainboxState.selectedItem === "photo" ? "item active" : "item")} id="photo" onClick={event => whatever.toggleItem(event)}>
         <i className="photo large icon" id="photo"/>
       </a>
 
-      <a className="item" id="cocktail">
-        <i className="cocktail large icon" id="cocktail"/>
+      <a className={(whatever.mainboxState.selectedItem === "cocktail" ? "item active" : "item")} id="cocktail" onClick={event => whatever.toggleItem(event)}>
+        <i className="cocktail large icon" id="cocktail" />
       </a>
 
-      <a className="item" id="pokemon"> 
+      <a className={(whatever.mainboxState.selectedItem === "pokemon" ? "item active" : "item")} id="pokemon" onClick={event => whatever.toggleItem(event)}> 
         <i className=" themeisle large icon" id="pokemon"/>
       </a>
     </div>

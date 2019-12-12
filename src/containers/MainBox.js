@@ -2,8 +2,19 @@ import React from 'react'
 import MenuBar from '../components/MenuBar.js'
 import { Profile, Photos, Cocktails, Pokemon} from '../components/Pages.js'
 
+
 class MainBox extends React.Component {
 
+    state = {
+      selectedItem: "profile"
+    }
+
+  toggleItem = (event) => {
+    this.setState({
+      selectedItem: event.target.id
+    }, 
+    )
+  }
 
   render() {
 
@@ -13,12 +24,22 @@ class MainBox extends React.Component {
 
     */
 
-    const detailsToDisplay = <div>Hi, I'm a div!</div>
+    const detailsToDisplay = () => {
+      if (this.state.selectedItem === 'profile') {
+        return <Profile />
+      } else if (this.state.selectedItem === 'photo'){
+        return <Photos />
+      } else if (this.state.selectedItem === 'cocktail') {
+        return <Cocktails />
+      } else {
+        return <Pokemon />
+      }
+    }
 
     return (
       <div>
-        <MenuBar />
-        {detailsToDisplay}
+        <MenuBar mainboxState={this.state} toggleItem={this.toggleItem}/>
+        {detailsToDisplay()}
       </div>
     )
   }
